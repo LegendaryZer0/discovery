@@ -32,11 +32,11 @@
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
 
-        <dependency>
+ <!--       <dependency>
             <groupId>org.springframework.experimental</groupId>
             <artifactId>spring-native</artifactId>
             <version>0.10.1</version>
-        </dependency>
+        </dependency>-->
 
 
         <dependency>
@@ -64,6 +64,8 @@
 
     <build>
         <plugins>
+
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -78,7 +80,7 @@
             </plugin>
 
 
-            <plugin>
+<!--            <plugin>
                 <groupId>org.springframework.experimental</groupId>
                 <artifactId>spring-aot-maven-plugin</artifactId>
                 <version>0.10.1</version>
@@ -96,10 +98,11 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
+<!--
     <profiles>
         <profile>
             <id>native</id>
@@ -126,10 +129,13 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <buildArgs></buildArgs>
+                            <buildArgs>
+                                -H:-CheckToolchain
+                                -H:+ReportExceptionStackTraces
+                            </buildArgs>
                         </configuration>
                     </plugin>
-                    <!-- Avoid a clash between Spring Boot repackaging and native-maven-plugin -->
+                    &lt;!&ndash; Avoid a clash between Spring Boot repackaging and native-maven-plugin &ndash;&gt;
                     <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
@@ -140,7 +146,7 @@
                 </plugins>
             </build>
             <repositories>
-                <!-- ... -->
+                &lt;!&ndash; ... &ndash;&gt;
                 <repository>
                     <id>spring-release</id>
                     <name>Spring release</name>
@@ -149,7 +155,7 @@
             </repositories>
 
             <pluginRepositories>
-                <!-- ... -->
+                &lt;!&ndash; ... &ndash;&gt;
                 <pluginRepository>
                     <id>spring-release</id>
                     <name>Spring release</name>
@@ -161,7 +167,7 @@
     </profiles>
 
     <repositories>
-        <!-- ... -->
+        &lt;!&ndash; ... &ndash;&gt;
         <repository>
             <id>spring-release</id>
             <name>Spring release</name>
@@ -170,12 +176,13 @@
     </repositories>
 
     <pluginRepositories>
-        <!-- ... -->
+        &lt;!&ndash; ... &ndash;&gt;
         <pluginRepository>
             <id>spring-release</id>
             <name>Spring release</name>
             <url>https://repo.spring.io/release</url>
         </pluginRepository>
     </pluginRepositories>
+-->
 
 </project>
